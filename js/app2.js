@@ -8,7 +8,7 @@ var startdata = [992,1389,129,137,2078,695,756,436,0,0,992,1389,129,137,2078,695
 
 window.onload = function() {
 	var ctx = document.getElementById('canvas').getContext('2d');
-  var firstdata = getData(1);
+  var firstdata = getData(0);
   var seconddata = getData2();
   
   var sdodata = [];
@@ -18,7 +18,7 @@ window.onload = function() {
   }
   //console.log(sdodata);
   for (j in seconddata){
-    if (seconddata[j].countyfips == 1){
+    if (seconddata[j].countyfips == 0){
       censusdata.push(Number(seconddata[j].Age0));
       censusdata.push(Number(seconddata[j].Age5));
       censusdata.push(Number(seconddata[j].Age10));
@@ -253,7 +253,7 @@ function getData(fips) {
 
 function getData2(){
   var data = $.ajax({
-    url: "data/censusage.json",
+    url: "data/dhcage.json",
     dataType: 'json',
     async: false,
  
